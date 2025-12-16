@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Trends 2026: Strategic Outlook</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #F9F8F6; /* Warm Alabaster */
+            color: #4A4A4A;
+        }
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            color: #2C2C2C;
+        }
+        
+        /* Custom Scrollbar for a clean feel */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F0EFE9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D1CDC7;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #B0ADA8;
+        }
+
+        /* Chart Container Styling - MANDATORY */
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+            overflow: hidden;
+        }
+
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+
+        /* Card Hover Effects */
+        .insight-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .insight-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+        }
+
+        /* Diagram Connectors (No SVG) */
+        .connector-line {
+            width: 2px;
+            background-color: #E5E7EB;
+        }
+        .arrow-down::after {
+            content: '↓';
+            font-size: 20px;
+            color: #9CA3AF;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation -->
+    <nav class="bg-[#F9F8F6] sticky top-0 z-50 border-b border-[#E5E5E5] backdrop-blur-md bg-opacity-90">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center">
+                    <span class="text-2xl font-bold tracking-tight text-[#2C2C2C]">AI Trends <span class="text-[#8C7B75] italic">2026</span></span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <button onclick="scrollToSection('executive-summary')" class="text-sm font-medium text-gray-500 hover:text-[#8C7B75] transition-colors">Overview</button>
+                    <button onclick="scrollToSection('agentic-shift')" class="text-sm font-medium text-gray-500 hover:text-[#8C7B75] transition-colors">Agentic AI</button>
+                    <button onclick="scrollToSection('edge-computing')" class="text-sm font-medium text-gray-500 hover:text-[#8C7B75] transition-colors">Edge Infrastructure</button>
+                    <button onclick="scrollToSection('future-view')" class="text-sm font-medium text-gray-500 hover:text-[#8C7B75] transition-colors">Future Models</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-24">
+
+        <!-- Header / Executive Summary -->
+        <section id="executive-summary" class="text-center max-w-4xl mx-auto space-y-6">
+            <h1 class="text-5xl md:text-6xl font-bold leading-tight text-[#2C2C2C]">
+                The Age of <br/><span class="text-[#8C7B75]">Autonomy</span>
+            </h1>
+            <p class="text-xl text-gray-600 leading-relaxed font-light">
+                2026 marks the pivotal transition from Generative text to Agentic action. This report synthesizes the key trends defining the next era of Artificial Intelligence: the rise of autonomous agents, the migration to edge computing, and the emergence of embodied intelligence.
+            </p>
+            
+            <!-- Key Metrics Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 text-left">
+                <div class="bg-white p-8 rounded-xl shadow-sm border border-[#F0F0F0] insight-card">
+                    <div class="text-sm text-gray-400 uppercase tracking-wider mb-2">Global Market 2026</div>
+                    <div class="text-4xl font-bold text-[#2C2C2C]">$297B</div>
+                    <div class="text-sm text-[#748B75] mt-2">↑ Projected Sector Value</div>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-sm border border-[#F0F0F0] insight-card">
+                    <div class="text-sm text-gray-400 uppercase tracking-wider mb-2">Workforce Impact</div>
+                    <div class="text-4xl font-bold text-[#2C2C2C]">40%</div>
+                    <div class="text-sm text-[#8C7B75] mt-2">Tasks Automated or Augmented</div>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-sm border border-[#F0F0F0] insight-card">
+                    <div class="text-sm text-gray-400 uppercase tracking-wider mb-2">Edge Growth</div>
+                    <div class="text-4xl font-bold text-[#2C2C2C]">+300%</div>
+                    <div class="text-sm text-[#5E748B] mt-2">Local Inference Adoption</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 1: The Agentic Shift -->
+        <section id="agentic-shift" class="scroll-mt-24">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-12 h-1 bg-[#8C7B75]"></div>
+                        <h2 class="text-3xl font-bold">From Chat to Action</h2>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed">
+                        While 2023-2024 focused on <strong>Generative AI</strong> (creating content), 2026 is defined by <strong>Agentic AI</strong> (executing tasks). Adoption rates show a rapid maturation of enterprise workflows where AI agents don't just write emails—they schedule meetings, negotiate times, and update CRMs autonomously.
+                    </p>
+                    
+                    <!-- Interactive Text Block -->
+                    <div class="bg-white p-6 rounded-lg border border-[#F0F0F0] shadow-sm">
+                        <h4 class="font-bold text-[#2C2C2C] mb-2">Strategic Implication</h4>
+                        <p id="agent-insight" class="text-sm text-gray-500">
+                            Enterprises are moving from "Co-pilot" models (human-in-the-loop) to "Auto-pilot" models (human-on-the-loop) for routine administrative tasks.
+                        </p>
+                        <div class="mt-4 flex gap-2">
+                            <button onclick="updateAgentInsight('strategic')" class="px-3 py-1 text-xs bg-[#F5F5F0] hover:bg-[#EAEAE5] rounded text-gray-700 transition">Strategy</button>
+                            <button onclick="updateAgentInsight('technical')" class="px-3 py-1 text-xs bg-[#F5F5F0] hover:bg-[#EAEAE5] rounded text-gray-700 transition">Tech Stack</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7">
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-[#F0F0F0]">
+                        <div class="flex justify-between items-center mb-6">
+                            <h3 class="text-lg font-semibold text-gray-800">Enterprise Adoption: Generative vs. Agentic</h3>
+                            <span class="text-xs text-gray-400">Projected % of Firms</span>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="agentAdoptionChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Infrastructure & Edge -->
+        <section id="edge-computing" class="bg-white rounded-2xl p-8 md:p-12 shadow-sm border border-[#F0F0F0] scroll-mt-24">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="space-y-6">
+                    <h2 class="text-3xl font-bold text-[#2C2C2C]">The Edge Migration</h2>
+                    <p class="text-gray-600">
+                        Privacy, latency, and cost are pushing AI inference from the cloud to the edge. By 2026, the majority of AI interactions will occur locally on devices (laptops, phones, embedded systems) rather than in centralized data centers.
+                    </p>
+                    <ul class="space-y-4 mt-6">
+                        <li class="flex items-start">
+                            <span class="text-[#5E748B] mr-3 mt-1">●</span>
+                            <span class="text-sm text-gray-600"><strong>Privacy First:</strong> Sensitive health and financial data remains on-device.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-[#5E748B] mr-3 mt-1">●</span>
+                            <span class="text-sm text-gray-600"><strong>Zero Latency:</strong> Real-time translation and AR overlay require <5ms response times.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-[#5E748B] mr-3 mt-1">●</span>
+                            <span class="text-sm text-gray-600"><strong>Cost Efficiency:</strong> Offloading inference costs from service providers to end-user hardware.</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="flex flex-col items-center justify-center">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2">2026 Inference Volume Split</h3>
+                    <div class="chart-container relative" style="height: 300px; max-height: 300px;">
+                        <canvas id="edgeCloudChart"></canvas>
+                    </div>
+                    <div class="mt-4 text-center">
+                        <p class="text-xs text-gray-400 italic">Click chart segments to view details</p>
+                        <div id="edge-detail" class="mt-2 text-sm font-medium text-[#5E748B] min-h-[20px]">
+                            Total Inference Volume: 100%
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Agentic Workflow Diagram (HTML/CSS) -->
+        <section class="scroll-mt-24">
+            <div class="text-center mb-10 max-w-2xl mx-auto">
+                <h2 class="text-3xl font-bold mb-4">Anatomy of an Agentic Workflow</h2>
+                <p class="text-gray-600">Unlike linear chatbots, autonomous agents operate in loops: perceiving, reasoning, acting, and reflecting. This requires a new architectural pattern.</p>
+            </div>
+
+            <div class="bg-[#FDFBF9] p-8 rounded-xl border border-[#E5E5E5] overflow-x-auto">
+                <div class="min-w-[800px] flex justify-between items-start relative">
+                    
+                    <!-- Step 1: Trigger -->
+                    <div class="flex flex-col items-center w-1/5 group">
+                        <div class="w-16 h-16 rounded-full bg-white border-2 border-[#8C7B75] flex items-center justify-center text-2xl shadow-sm mb-4 z-10 relative group-hover:bg-[#8C7B75] group-hover:text-white transition-colors duration-300">
+                            👤
+                        </div>
+                        <h4 class="font-bold text-[#2C2C2C] mb-2">User Intent</h4>
+                        <p class="text-xs text-center text-gray-500 bg-white p-2 rounded shadow-sm border border-gray-100">
+                            "Plan a Q3 marketing campaign"
+                        </p>
+                    </div>
+
+                    <!-- Connector -->
+                    <div class="absolute top-8 left-[10%] right-[10%] h-[2px] bg-[#E5E5E5] z-0"></div>
+
+                    <!-- Step 2: Orchestrator -->
+                    <div class="flex flex-col items-center w-1/5 group">
+                         <div class="w-16 h-16 rounded-full bg-white border-2 border-[#5E748B] flex items-center justify-center text-2xl shadow-sm mb-4 z-10 relative group-hover:bg-[#5E748B] group-hover:text-white transition-colors duration-300">
+                            🧠
+                        </div>
+                        <h4 class="font-bold text-[#2C2C2C] mb-2">Orchestrator</h4>
+                        <p class="text-xs text-center text-gray-500 bg-white p-2 rounded shadow-sm border border-gray-100">
+                            Breaks down goal into sub-tasks
+                        </p>
+                    </div>
+
+                    <!-- Step 3: Specialist Agents -->
+                    <div class="flex flex-col items-center w-1/5 z-10">
+                        <div class="flex flex-col gap-3 w-full items-center">
+                            <!-- Agent A -->
+                            <div class="bg-white p-3 rounded-lg border border-gray-200 shadow-sm w-full text-center hover:border-[#748B75] transition-colors">
+                                <span class="block text-xl mb-1">📊</span>
+                                <span class="text-xs font-bold text-[#748B75]">Data Agent</span>
+                            </div>
+                            <!-- Agent B -->
+                            <div class="bg-white p-3 rounded-lg border border-gray-200 shadow-sm w-full text-center hover:border-[#748B75] transition-colors">
+                                <span class="block text-xl mb-1">✍️</span>
+                                <span class="text-xs font-bold text-[#748B75]">Creative Agent</span>
+                            </div>
+                        </div>
+                        <p class="text-xs text-center text-gray-400 mt-2">Parallel Execution</p>
+                    </div>
+
+                    <!-- Step 4: Synthesis -->
+                    <div class="flex flex-col items-center w-1/5 group">
+                         <div class="w-16 h-16 rounded-full bg-white border-2 border-[#5E748B] flex items-center justify-center text-2xl shadow-sm mb-4 z-10 relative group-hover:bg-[#5E748B] group-hover:text-white transition-colors duration-300">
+                            ⚙️
+                        </div>
+                        <h4 class="font-bold text-[#2C2C2C] mb-2">Synthesis</h4>
+                        <p class="text-xs text-center text-gray-500 bg-white p-2 rounded shadow-sm border border-gray-100">
+                            Merges outputs & verifies quality
+                        </p>
+                    </div>
+
+                    <!-- Step 5: Output -->
+                    <div class="flex flex-col items-center w-1/5 group">
+                         <div class="w-16 h-16 rounded-full bg-white border-2 border-[#8C7B75] flex items-center justify-center text-2xl shadow-sm mb-4 z-10 relative group-hover:bg-[#8C7B75] group-hover:text-white transition-colors duration-300">
+                            ✅
+                        </div>
+                        <h4 class="font-bold text-[#2C2C2C] mb-2">Execution</h4>
+                        <p class="text-xs text-center text-gray-500 bg-white p-2 rounded shadow-sm border border-gray-100">
+                            Final plan delivered & calendar invites sent
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Future View (3D Plot & Robotics) -->
+        <section id="future-view" class="grid grid-cols-1 lg:grid-cols-2 gap-12 scroll-mt-24">
+            
+            <!-- Robotics Column -->
+            <div class="space-y-6">
+                <div class="flex items-center space-x-3 mb-4">
+                    <div class="w-12 h-1 bg-[#748B75]"></div>
+                    <h2 class="text-3xl font-bold">Embodied AI</h2>
+                </div>
+                <p class="text-gray-600">
+                    AI is entering the physical world. The deployment of general-purpose humanoid robots in industrial settings is following a logarithmic growth curve, driven by Vision-Language-Action (VLA) models.
+                </p>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-[#F0F0F0]">
+                     <h3 class="text-lg font-semibold text-gray-800 mb-4">Humanoid Robot Deployments</h3>
+                    <div class="chart-container">
+                        <canvas id="roboticsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Plotly 3D Column -->
+            <div class="space-y-6">
+                <div class="flex items-center space-x-3 mb-4">
+                    <div class="w-12 h-1 bg-[#5E748B]"></div>
+                    <h2 class="text-3xl font-bold">Model Landscape</h2>
+                </div>
+                <p class="text-gray-600">
+                    The race isn't just for size anymore. It's an optimization of Capability vs. Size vs. Cost. Small, efficient models are rivaling the giants of 2024 through distillation.
+                </p>
+                <div class="bg-white rounded-xl shadow-sm border border-[#F0F0F0] overflow-hidden">
+                    <div id="plotly3dDiv" style="width: 100%; height: 400px;"></div>
+                    <div class="p-4 bg-[#F9F8F6] border-t border-[#F0F0F0]">
+                        <p class="text-xs text-center text-gray-500">
+                            Interactive 3D: Drag to rotate. Shows the shift towards high-capability, lower-cost small models.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="border-t border-[#E5E5E5] pt-12 pb-8 text-center">
+            <p class="text-2xl font-serif text-[#2C2C2C] mb-4">AI Trends 2026</p>
+            <p class="text-sm text-gray-500 mb-8 max-w-lg mx-auto">
+                Synthesized from 2026 Predictive Research Reports. Focused on the transition to autonomous, embodied, and edge-native artificial intelligence.
+            </p>
+            <div class="flex justify-center gap-6">
+                <span class="w-2 h-2 rounded-full bg-[#8C7B75]"></span>
+                <span class="w-2 h-2 rounded-full bg-[#748B75]"></span>
+                <span class="w-2 h-2 rounded-full bg-[#5E748B]"></span>
+            </div>
+        </footer>
+
+    </main>
+
+    <script>
+        // --- NAVIGATION LOGIC ---
+        function scrollToSection(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // --- INTERACTION LOGIC ---
+        function updateAgentInsight(type) {
+            const textElement = document.getElementById('agent-insight');
+            if (type === 'strategic') {
+                textElement.innerText = 'Enterprises are moving from "Co-pilot" models (human-in-the-loop) to "Auto-pilot" models (human-on-the-loop) for routine administrative tasks.';
+            } else {
+                textElement.innerText = 'Technical architecture is shifting from monolithic LLM calls to multi-agent orchestration frameworks (like LangGraph or CrewAI) where agents share state.';
+            }
+        }
+
+        // --- CHART.JS CONFIGURATION ---
+        
+        // Utility: Wrap Labels
+        function wrapLabel(str, maxChars) {
+            if (str.length <= maxChars) return str;
+            const words = str.split(' ');
+            const lines = [];
+            let currentLine = words[0];
+            for (let i = 1; i < words.length; i++) {
+                if (currentLine.length + 1 + words[i].length <= maxChars) {
+                    currentLine += ' ' + words[i];
+                } else {
+                    lines.push(currentLine);
+                    currentLine = words[i];
+                }
+            }
+            lines.push(currentLine);
+            return lines;
+        }
+
+        // Utility: Mandatory Tooltip Config
+        const tooltipConfig = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    } else {
+                        return label;
+                    }
+                }
+            },
+            backgroundColor: '#2C2C2C',
+            titleFont: { family: 'Lato', size: 13 },
+            bodyFont: { family: 'Lato', size: 12 },
+            padding: 10,
+            cornerRadius: 4,
+            displayColors: true
+        };
+
+        // Global Chart Defaults for "Warm Neutrals" theme
+        Chart.defaults.font.family = "'Lato', sans-serif";
+        Chart.defaults.color = '#6B7280';
+        Chart.defaults.borderColor = '#E5E7EB';
+
+        // 1. Agent Adoption Chart (Line)
+        const ctxAgent = document.getElementById('agentAdoptionChart').getContext('2d');
+        new Chart(ctxAgent, {
+            type: 'line',
+            data: {
+                labels: ['2023', '2024', '2025', '2026 (Est)'],
+                datasets: [
+                    {
+                        label: wrapLabel('Generative AI (Creation)', 20),
+                        data: [65, 85, 88, 90],
+                        borderColor: '#8C7B75', // Warm Brown
+                        backgroundColor: 'rgba(140, 123, 117, 0.1)',
+                        borderWidth: 2,
+                        tension: 0.4,
+                        fill: true
+                    },
+                    {
+                        label: wrapLabel('Agentic AI (Autonomous)', 20),
+                        data: [2, 10, 30, 45],
+                        borderColor: '#5E748B', // Slate Blue
+                        backgroundColor: 'rgba(94, 116, 139, 0.1)',
+                        borderWidth: 2,
+                        tension: 0.4,
+                        fill: true
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    tooltip: tooltipConfig,
+                    legend: {
+                        position: 'bottom',
+                        labels: { padding: 20, usePointStyle: true }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: { borderDash: [5, 5] },
+                        title: { display: true, text: 'Adoption %' }
+                    },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        // 2. Edge vs Cloud Chart (Doughnut)
+        const ctxEdge = document.getElementById('edgeCloudChart').getContext('2d');
+        const edgeChart = new Chart(ctxEdge, {
+            type: 'doughnut',
+            data: {
+                labels: [
+                    wrapLabel('Edge Inference (Local)', 15),
+                    wrapLabel('Cloud Inference (Central)', 15)
+                ],
+                datasets: [{
+                    data: [62, 38],
+                    backgroundColor: ['#748B75', '#D1D5DB'], // Sage Green vs Grey
+                    hoverBackgroundColor: ['#637864', '#9CA3AF'],
+                    borderWidth: 0,
+                    hoverOffset: 10
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                cutout: '75%',
+                plugins: {
+                    tooltip: tooltipConfig,
+                    legend: { position: 'bottom', labels: { usePointStyle: true, padding: 20 } }
+                },
+                onClick: (e, activeElements) => {
+                    if (activeElements.length > 0) {
+                        const index = activeElements[0].index;
+                        const label = edgeChart.data.labels[index];
+                        const value = edgeChart.data.datasets[0].data[index];
+                        const detailEl = document.getElementById('edge-detail');
+                        
+                        // Handle wrapped label arrays
+                        const displayLabel = Array.isArray(label) ? label.join(' ') : label;
+                        
+                        detailEl.innerText = `${displayLabel}: ${value}% - ${index === 0 ? "Driven by privacy & latency needs." : "Reserved for massive model training."}`;
+                    }
+                }
+            }
+        });
+
+        // 3. Robotics Chart (Bar)
+        const ctxRobot = document.getElementById('roboticsChart').getContext('2d');
+        new Chart(ctxRobot, {
+            type: 'bar',
+            data: {
+                labels: ['2023', '2024', '2025', '2026'],
+                datasets: [{
+                    label: wrapLabel('Active Humanoid Units', 20),
+                    data: [500, 2500, 15000, 50000],
+                    backgroundColor: '#8C7B75',
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    tooltip: tooltipConfig,
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        type: 'logarithmic', // Log scale to show growth clearly
+                        title: { display: true, text: 'Units (Log Scale)' }
+                    },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        // --- PLOTLY.JS CONFIGURATION (3D SCATTER) ---
+        
+        const plotlyData = [{
+            x: [100, 70, 7, 1.5, 0.5], // Model Size (Billions)
+            y: [95, 90, 82, 75, 60],   // Capability Score
+            z: [500, 300, 20, 5, 1],   // Cost Index
+            mode: 'markers',
+            marker: {
+                size: [25, 20, 15, 12, 8],
+                color: [95, 90, 82, 75, 60], // Color by capability
+                colorscale: [
+                    [0, '#D1D5DB'],
+                    [0.5, '#748B75'],
+                    [1, '#5E748B']
+                ],
+                opacity: 0.9,
+                line: { color: 'white', width: 1 }
+            },
+            type: 'scatter3d',
+            text: [
+                'Mega-Model (Cloud)', 
+                'Large Model', 
+                'Efficient Medium', 
+                'Edge SLM (Phone)', 
+                'Micro-Model (IoT)'
+            ],
+            hoverinfo: 'text+x+y+z'
+        }];
+
+        const plotlyLayout = {
+            margin: { l: 0, r: 0, b: 0, t: 0 },
+            paper_bgcolor: 'rgba(0,0,0,0)',
+            plot_bgcolor: 'rgba(0,0,0,0)',
+            scene: {
+                xaxis: { title: 'Size (B)', titlefont: {color: '#6B7280'}, tickfont: {color: '#9CA3AF'} },
+                yaxis: { title: 'Capability', titlefont: {color: '#6B7280'}, tickfont: {color: '#9CA3AF'} },
+                zaxis: { title: 'Cost', titlefont: {color: '#6B7280'}, tickfont: {color: '#9CA3AF'} },
+                camera: {
+                    eye: {x: 1.5, y: 1.5, z: 1.2}
+                }
+            },
+            font: { family: 'Lato' }
+        };
+
+        const plotlyConfig = {
+            displayModeBar: false,
+            responsive: true
+        };
+
+        Plotly.newPlot('plotly3dDiv', plotlyData, plotlyLayout, plotlyConfig);
+
+    </script>
+    
+    <!-- Chosen Palette: Warm Neutrals & Editorial (Alabaster #F9F8F6, Warm Brown #8C7B75, Sage Green #748B75, Slate Blue #5E748B) -->
+    
+    <!-- Application Structure Plan:
+         Designed as an "Executive Briefing" Dashboard.
+         1. Hero Section: High-level metrics for immediate impact.
+         2. Agentic Shift: Compare Generative vs Agentic to show the core 2026 trend.
+         3. Edge Computing: Deep dive into infrastructure changes (Cloud vs Edge).
+         4. Workflow Diagram: Visual explanation of HOW agents work (educational).
+         5. Future View: 3D data and Robotics stats for forward-looking strategy.
+         Navigation is sticky for easy access to sections.
+         Interactions focus on clarity (tooltips, simple toggles) to maintain the "calm" aesthetic.
+    -->
+
+    <!-- Visualization & Content Choices:
+         1. Metric Cards (HTML/Tailwind): Inform -> Inform immediate scale ($297B).
+         2. Line Chart (Chart.js): Change -> Show the crossover trend of GenAI vs Agentic AI over time.
+         3. Doughnut Chart (Chart.js): Compare -> Visualize the split between Edge and Cloud. Interaction adds detail without clutter.
+         4. Process Diagram (HTML Grid): Organize -> Explain complex Agentic loops using clean layout, NO SVG/Mermaid.
+         5. Bar Chart (Chart.js): Change -> Show logarithmic growth of robotics.
+         6. 3D Scatter (Plotly Canvas): Relationships -> Correlate Size vs Capability vs Cost.
+    -->
+
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+</body>
+</html>
